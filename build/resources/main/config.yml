@@ -1,0 +1,117 @@
+# ==========================================================================
+#  BananaPaintball - configuration
+#  Messages accept MiniMessage tags and legacy '&' color codes.
+# ==========================================================================
+
+# Database (MySQL / MariaDB) for statistics and leaderboards.
+database:
+  enabled: true
+  host: localhost
+  port: 3306
+  database: bananapaintball
+  username: root
+  password: ""
+  pool-size: 8
+  use-ssl: false
+  table-prefix: "pb_"
+
+# Worlds where the PaintBall command, menu, and lobby item are disabled.
+# Players in these worlds cannot queue, open the menu, or receive the lobby
+# item. Admin setup commands still work. Names are case-insensitive.
+disabled-worlds: []
+
+# Lobby item given to players when they arrive in the PaintBall lobby.
+lobby-item:
+  enabled: false
+  material: SLIME_BALL
+  slot: 4
+  name: "<green><bold>PaintBall</bold> <gray>(Right-Click)"
+  lore:
+    - "<gray>Open the PaintBall menu."
+
+# Team equipment handed out at match start.
+equipment:
+  snowball-amount: 16
+  snowball-refill-seconds: 2
+  spawn-protection-seconds: 3
+  boundary-cooldown-seconds: 2
+  # Minimum time between paintball throws, in seconds (decimals allowed).
+  throw-cooldown-seconds: 1.0
+  # Blocks below the region's lowest corner before a player counts as out of
+  # bounds. Keeps jumping from triggering the boundary while still catching
+  # players who fall away from the arena.
+  boundary-floor-buffer: 5.0
+
+# Gameplay sound effects. Use namespaced Minecraft sound keys.
+# Set enabled to false to silence them, or leave any key blank to skip it.
+sounds:
+  enabled: true
+  hit: "minecraft:entity.arrow.hit_player"        # shooter tags an enemy
+  life-lost: "minecraft:entity.player.hurt"       # victim loses a life
+  countdown: "minecraft:block.note_block.pling"   # pre-match at 10s and 5s
+  countdown-final: "minecraft:block.note_block.bell"  # pre-match at 3, 2, 1
+  win: "minecraft:entity.player.levelup"          # match won
+  lose: "minecraft:entity.villager.no"            # match lost / tied
+
+# Sidebar scoreboard.
+scoreboard:
+  enabled: true
+  title: "<green><bold>BananaMC</bold> <white>PaintBall"
+  lines:
+    - "<gray>Arena: <white>%arena%"
+    - ""
+    - "<red>Red Lives: <white>%red_lives%"
+    - "<blue>Blue Lives: <white>%blue_lives%"
+    - ""
+    - "<aqua>Your Kills: <white>%kills%"
+    - "<gray>Time Left: <white>%time%"
+    - ""
+    - "<green>banana.mc"
+
+# Reward commands executed from console at match end.
+# Placeholders: %player% %uuid% %arena% %kills% %result%
+# Leave these empty to avoid any server-wide messages; the win/tie result is
+# already shown in chat to the players in the match.
+rewards:
+  winner: []
+  loser: []
+  tie: []
+
+# Per-arena reward overrides. If an arena name is listed here, ITS command
+# lists fully replace the global rewards above for matches in that arena.
+# Arena names are case-sensitive (match how you created the arena).
+# Same placeholders: %player% %uuid% %arena% %kills% %result%
+arena-rewards: {}
+#  warehouse:
+#    winner:
+#      - "eco give %player% 100"
+#      - "broadcast %player% won in %arena%!"
+#    loser:
+#      - "eco give %player% 25"
+#    tie: []
+
+messages:
+  prefix: "<green><bold>PaintBall</bold> <dark_gray>» <reset>"
+  no-permission: "<red>You do not have permission to do that."
+  world-disabled: "<red>PaintBall is disabled in this world."
+  players-only: "<red>Only players can use this command."
+  joined-queue: "<gray>You joined the <green>%queue%<gray> queue. Position: <white>%position%"
+  left-queue: "<gray>You left the queue."
+  not-in-queue: "<red>You are not currently in a queue."
+  already-in-game: "<red>You are already in a match."
+  arena-not-found: "<red>Arena <white>%arena%<red> was not found."
+  arena-not-enabled: "<red>That arena is not enabled."
+  no-arenas: "<red>There are no arenas available right now."
+  match-found: "<gray>Match found! You joined <green>%arena%<gray>."
+  throw-cooldown: "<red>Slow down! <gray>You can throw again in %seconds%s."
+  countdown-start: "<gray>Match starting in <green>%seconds%<gray> seconds..."
+  countdown-cancel: "<red>Countdown cancelled - not enough players."
+  match-start: "<green>The match has begun! Eliminate the enemy team."
+  match-win: "<green>%team% team wins!"
+  match-tie: "<yellow>The match ended in a tie!"
+  eliminated: "<gray>You were eliminated by <white>%killer%<gray>."
+  elimination-broadcast: "<white>%victim% <gray>was eliminated by <white>%killer%<gray>."
+  boundary-warning: "<red>Leaving the arena costs a team life!"
+  spawn-protection: "<aqua>Spawn protection active for %seconds%s."
+  returned-to-lobby: "<gray>You have returned to the PaintBall lobby."
+  no-main-lobby: "<red>The PaintBall main lobby has not been set."

@@ -1,0 +1,21 @@
+name: BananaPaintball
+version: "${version}"
+main: com.bananamc.paintball.BananaPaintball
+description: Red vs blue team-lives paintball for BananaMC.
+author: BananaMC
+api-version: '1.21.11'
+softdepend: [PlaceholderAPI]
+
+commands:
+  paintball:
+    description: Open the PaintBall menu and manage arenas.
+    usage: /paintball
+    aliases: [pb]
+
+permissions:
+  paintball.play:
+    description: Allows joining and playing PaintBall.
+    default: true
+  paintball.admin:
+    description: Allows arena creation and administration.
+    default: op
