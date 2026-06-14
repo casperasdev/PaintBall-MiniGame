@@ -311,7 +311,3 @@ into memory when a player joins and unloaded on quit. If the database is
 disabled or unreachable, the minigame still runs without persistence.
 
 ---
-
-## License
-
-MIT. Based on Ajneb97's MIT-licensed PaintballBattle.
