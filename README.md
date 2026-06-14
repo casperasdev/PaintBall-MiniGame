@@ -1,16 +1,3 @@
-# BananaPaintball
-
-Red vs blue, team-lives paintball for BananaMC. Built for **Paper 1.21.11** on
-**Java 21**. Players throw snowball "paintballs" for one-hit eliminations; each
-hit (or arena escape) drains a shared team life pool, and the first team to run
-out loses.
-
-This is a modernized, MIT-licensed reimagining of Ajneb97's PaintballBattle.
-Hats, perks, killcoins, killstreaks, shops, and internal currency are removed.
-Capture the Flag is reserved for a future phase (arenas already store
-`mode: TEAM_LIVES` for forward compatibility).
-
----
 
 ## Features
 
